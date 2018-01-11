@@ -3,7 +3,7 @@ Buttcoin Core integration/staging tree https://tinyurl.com/ButtCoinFeedback
 
 # This is somewhat a parody, but also a functioning currency. Made of Butts.
 
-Biuttoin Core integration/staging tree
+ButtCoin Core integration/staging tree
 =====================================
 
 [![Build Status](https://travis-ci.org/buttcoin/buttcoin.svg?branch=master)](https://travis-ci.org/buttcoin/buttcoin)
