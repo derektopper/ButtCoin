@@ -18,7 +18,7 @@ anyone, anywhere in the world. Buttcoin uses peer-to-peer technology to operate
 with no central authority: managing transactions and issuing money are carried
 out collectively by the network. Buttcoin Core is the name of open source
 software which enables the use of this currency. Buttcoin was founded by Jack Gilmore,
-Justin Barry, Derek B0tt0mer and Hideki Nakamura.
+Justin Barr\y, Derek B0tt0mer and Hideki Nakamura.
 
 Honestly, if you know how to mine this, you can probably get a bunch of ButtCoin really easily.
 
@@ -45,7 +45,6 @@ The developer [mailing list](https://lists.linuxfoundation.org/mailman/listinfo/
 should be used to discuss complicated or controversial changes before working
 on a patch set.
 
-Developer IRC can be found on Freenode at #buttcoin-core-dev.
 
 Testing
 -------
