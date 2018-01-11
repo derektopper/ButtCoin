@@ -17,8 +17,8 @@ Buttcoin is an experimental digital currency that enables instant payments to
 anyone, anywhere in the world. Buttcoin uses peer-to-peer technology to operate
 with no central authority: managing transactions and issuing money are carried
 out collectively by the network. Buttcoin Core is the name of open source
-software which enables the use of this currency. Buttcoin was founded by Jack Gilmorear,
-Justin Buttry, Derek B0tt0mer and Hideki Nakamura.
+software which enables the use of this currency. Buttcoin was founded by Jack Gilmore,
+Justin Barry, Derek B0tt0mer and Hideki Nakamura.
 
 Honestly, if you know how to mine this, you can probably get a bunch of ButtCoin really easily.
 
