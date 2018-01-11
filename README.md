@@ -1,5 +1,5 @@
 # ButtCoin
-Buttcoin Core integration/staging tree https://buttcoin.xyz/cz/download
+Buttcoin Core integration/staging tree https://tinyurl.com/ButtCoinFeedback
 
 # This is somewhat a parody, but also a functioning currency. Made of Butts.
 
@@ -17,10 +17,13 @@ Buttcoin is an experimental digital currency that enables instant payments to
 anyone, anywhere in the world. Buttcoin uses peer-to-peer technology to operate
 with no central authority: managing transactions and issuing money are carried
 out collectively by the network. Buttcoin Core is the name of open source
-software which enables the use of this currency.
+software which enables the use of this currency. Buttcoin was founded by Jack Gilmorear,
+Justin Buttry, Derek B0tt0mer and Hideki Nakamura.
+
+Honestly, if you know how to mine this, you can probably get a bunch of ButtCoin really easily.
 
 For more information, as well as an immediately useable, binary version of
-the Buttcoin Core software, see https://buttcoin.org/en/download, or read the
+the Buttcoin Core software, see https://buttcoin.xyz/cz/download, or read the
 [original whitepaper](https://buttcoincore.org/buttcoin.pdf).
 
 License
@@ -74,14 +77,6 @@ not straightforward.
 
 Translations
 ------------
+Buttcoin is available in English and Pig Latin.
 
-Changes to translations as well as new translations can be submitted to
-[Buttcoin Core's Transifex page](https://www.transifex.com/projects/p/buttcoin/).
-
-Translations are periodically pulled from Transifex and merged into the git repository. See the
-[translation process](doc/translation_process.md) for details on how this works.
-
-**Important**: We do not accept translation changes as GitHub pull requests because the next
-pull from Transifex would automatically overwrite them again.
-
-Translators should also subscribe to the [mailing list](https://groups.google.com/forum/#!forum/buttcoin-translators).
+Translators should also subscribe to the [mailing list](https://tinyurl.com/ButtCoinFeedback).
