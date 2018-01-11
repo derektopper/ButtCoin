@@ -1,0 +1,6 @@
+usr/local/bin/buttcoin-qt usr/bin
+share/pixmaps/buttcoin32.xpm usr/share/pixmaps
+share/pixmaps/buttcoin16.xpm usr/share/pixmaps
+share/pixmaps/buttcoin128.png usr/share/pixmaps
+debian/buttcoin-qt.desktop usr/share/applications
+debian/buttcoin-qt.protocol usr/share/kde4/services/

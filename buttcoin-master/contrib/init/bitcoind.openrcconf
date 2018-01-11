@@ -1,0 +1,33 @@
+# /etc/conf.d/buttcoind: config file for /etc/init.d/buttcoind
+
+# Config file location
+#buttcoinD_CONFIGFILE="/etc/buttcoin/buttcoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $buttcoinD_USER)
+#buttcoinD_PIDDIR="/var/run/buttcoind"
+
+# What filename to give the pidfile
+#buttcoinD_PIDFILE="${buttcoinD_PIDDIR}/buttcoind.pid"
+
+# Where to write buttcoind data (be mindful that the blockchain is large)
+#buttcoinD_DATADIR="/var/lib/buttcoind"
+
+# User and group to own buttcoind process
+#buttcoinD_USER="buttcoin"
+#buttcoinD_GROUP="buttcoin"
+
+# Path to buttcoind executable
+#buttcoinD_BIN="/usr/bin/buttcoind"
+
+# Nice value to run buttcoind under
+#buttcoinD_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#buttcoinD_OPTS=""
+
+# The timeout in seconds OpenRC will wait for buttcoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+buttcoinD_SIGTERM_TIMEOUT=60

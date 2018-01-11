@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=buttcoin Core
+Comment=Connect to the buttcoin P2P Network
+Comment[de]=Verbinde mit dem buttcoin peer-to-peer Netzwerk
+Comment[fr]=buttcoin, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=buttcoin, eşten eşe kriptografik sanal para birimi
+Exec=buttcoin-qt %u
+Terminal=false
+Type=Application
+Icon=buttcoin128
+MimeType=x-scheme-handler/buttcoin;
+Categories=Office;Finance;
+StartupWMClass=buttcoin-qt

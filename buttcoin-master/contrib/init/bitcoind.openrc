@@ -1,0 +1,92 @@
+#!/sbin/openrc-run
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/buttcoin/.buttcoin" ]; then
+	buttcoinD_DEFAULT_DATADIR="/var/lib/buttcoin/.buttcoin"
+else
+	buttcoinD_DEFAULT_DATADIR="/var/lib/buttcoind"
+fi
+
+buttcoinD_CONFIGFILE=${buttcoinD_CONFIGFILE:-/etc/buttcoin/buttcoin.conf}
+buttcoinD_PIDDIR=${buttcoinD_PIDDIR:-/var/run/buttcoind}
+buttcoinD_PIDFILE=${buttcoinD_PIDFILE:-${buttcoinD_PIDDIR}/buttcoind.pid}
+buttcoinD_DATADIR=${buttcoinD_DATADIR:-${buttcoinD_DEFAULT_DATADIR}}
+buttcoinD_USER=${buttcoinD_USER:-${buttcoin_USER:-buttcoin}}
+buttcoinD_GROUP=${buttcoinD_GROUP:-buttcoin}
+buttcoinD_BIN=${buttcoinD_BIN:-/usr/bin/buttcoind}
+buttcoinD_NICE=${buttcoinD_NICE:-${NICELEVEL:-0}}
+buttcoinD_OPTS="${buttcoinD_OPTS:-${buttcoin_OPTS}}"
+
+name="buttcoin Core Daemon"
+description="buttcoin cryptocurrency P2P network daemon"
+
+command="/usr/bin/buttcoind"
+command_args="-pid=\"${buttcoinD_PIDFILE}\" \
+		-conf=\"${buttcoinD_CONFIGFILE}\" \
+		-datadir=\"${buttcoinD_DATADIR}\" \
+		-daemon \
+		${buttcoinD_OPTS}"
+
+required_files="${buttcoinD_CONFIGFILE}"
+start_stop_daemon_args="-u ${buttcoinD_USER} \
+			-N ${buttcoinD_NICE} -w 2000"
+pidfile="${buttcoinD_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${buttcoinD_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${buttcoinD_USER}:${buttcoinD_GROUP}" \
+	"${buttcoinD_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${buttcoinD_USER}:${buttcoinD_GROUP}" \
+	"${buttcoinD_PIDDIR}"
+
+	checkpath -f \
+	-o ${buttcoinD_USER}:${buttcoinD_GROUP} \
+	-m 0660 \
+	${buttcoinD_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${buttcoinD_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run buttcoind."
+		eerror "The setting must appear in ${buttcoinD_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following "
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"buttcoin Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

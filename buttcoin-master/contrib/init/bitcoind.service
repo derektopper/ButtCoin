@@ -1,0 +1,25 @@
+# It is not recommended to modify this file in-place, because it will
+# be overwritten during package upgrades. If you want to add further
+# options or overwrite existing ones then use
+# $ systemctl edit buttcoind.service
+# See "man systemd.service" for details.
+
+# Note that almost all daemon options could be specified in
+# /etc/buttcoin/buttcoin.conf
+
+[Unit]
+Description=buttcoin daemon
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/buttcoind -daemon -conf=/etc/buttcoin/buttcoin.conf -pid=/run/buttcoind/buttcoind.pid
+# Creates /run/buttcoind owned by buttcoin
+RuntimeDirectory=buttcoind
+User=buttcoin
+Type=forking
+PIDFile=/run/buttcoind/buttcoind.pid
+Restart=on-failure
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
